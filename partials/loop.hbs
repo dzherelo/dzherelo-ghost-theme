@@ -1,0 +1,21 @@
+<article class="{{post_class}}">
+    <a class="" href="{{url}}">
+        <header class="">
+            <h2 class="">{{title}}</h2>
+        </header>
+
+        <div class="">{{excerpt}}</div>
+
+        <footer class="">
+            <time class="" datetime="{{date format="YYYY-MM-DD"}}">{{date}}</time>
+            —
+            <span class="">
+                <span class="">{{reading_time}}</span>
+
+                {{^has visibility="public"}}
+                    {{!-- {{> icons/star}} --}}
+                {{/has}}
+            </span>
+        </footer>
+    </a>
+</article>

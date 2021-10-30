@@ -1,0 +1,50 @@
+{
+    "name": "dzherelo",
+    "description": "",
+    "version": "0.0.1",
+    "engines": {
+        "ghost": ">=4.0.0",
+        "ghost-api": "v4"
+    },
+    "author": {
+        "name": "kosh",
+        "email": "dev@dzherelo.one"
+    },
+    "config": {
+        "post_per_page": 3,
+        "image_sizes": {
+            "xxs": {
+                "width": 30
+            },
+            "xs": {
+                "width": 100
+            },
+            "s": {
+                "width": 300
+            },
+            "m": {
+                "width": 600
+            },
+            "l": {
+                "width": 1000
+            },
+            "xl": {
+                "width": 2000
+            }
+        }
+    },
+    "dependencies": {
+        "tailwindcss": "^2.2.19",
+        "autoprefixer": "^10.0.2",
+        "postcss": "^8.0.9"
+
+    },
+    "scripts":{
+        "built-css": "tailwindcss -i ./assets/css/screen.css -o ./assets/built/screen.css"
+    },
+    "devDependencies": {
+        "tailwindcss": "^2.2.19",
+        "autoprefixer": "^10.0.2",
+        "postcss": "^8.0.9"
+    }
+}

@@ -1,0 +1,82 @@
+{{#get "tags" filter="accent_color: #333333"}}
+    <div class="flex flex-col justify-items-center content-center mb-56 text-center">
+        <img src="{{asset "images/hero-image.png"}}" alt="">
+        <div class="mx-72">
+            <p class="my-16 text-3xl font-light">"Джерело" - виставковий простір, відкритий для вулиці. Спосіб існування "Джерела" - прозорість, відкритість погляду перехожих. </p>
+            <a href="#" class="border border-green-400 px-48 py-3 text-green-400 hover:text-black hover:bg-green-400 hover:font-bold">
+                {{caps "читати більше"}}
+            </a>
+        </div>
+    </div>
+    <div class="mb-10 flex items-center">
+        <p class="pr-2">{{caps "виставки"}}</p>
+        <hr class="border-green-400 w-full">
+    </div>
+    <div class="grid grid-cols-2 gap-4">
+    {{#foreach tags}}
+    <div class="text-center hover:underline">
+        <a href="{{url}}">
+        <img class="hover:scale-95 motion-reduce:transform-none" srcset="{{img_url feature_image size="l"}} 960w"
+                sizes="(max-width: 1200px) 100vw, 1200px"
+                src="{{img_url feature_image size="xl"}}"
+                alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{name}}{{/if}}"
+                >
+        <h1 class="text-xl py-10">{{caps name}}</h1>
+        </a>
+    </div>
+    {{/foreach}}
+    </div>
+{{/get}}
+    <div class="mb-10 flex items-center">
+        <p class="w-36">{{caps "останні відео"}}</p>
+        <hr class="border-green-400 w-full">
+    </div>
+{{#get "posts" include="tags" filter="tag:hash-video" limit="4"}}
+    <div class="grid grid-cols-2 gap-4">
+    {{#foreach posts}}
+    <div class="">
+        <a href="{{url}}">
+        <img class="hover:scale-95 motion-reduce:transform-none" srcset="{{img_url feature_image size="l"}} 960w"
+                sizes="(max-width: 1200px) 100vw, 1200px"
+                src="{{img_url feature_image size="xl"}}"
+                alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{name}}{{/if}}"
+                >
+        <h1 class="text-xl">{{caps title}}</h1>
+        <p>{{caps primary_tag.name}}</p>
+        </a>
+    </div>
+    {{/foreach}}
+    </div>
+{{/get}}
+<div class="text-center">
+            <a href="#" class="text-center border border-green-400 px-48 py-3 text-green-400 hover:text-black hover:bg-green-400 hover:font-bold">
+                {{caps "Дивитися більше"}}
+            </a>
+</div>
+
+    <div class="mb-10 flex items-center">
+        <p class="w-44">{{caps "останні тексти"}}</p>
+        <hr class="border-green-400 w-full">
+    </div>
+{{#get "posts" include="tags" filter="tag:hash-text" limit="4"}}
+    <div class="grid grid-cols-2 gap-4">
+    {{#foreach posts}}
+            <div class="">
+                <a href="{{url}}">
+                <img class="hover:scale-95 motion-reduce:transform-none" srcset="{{img_url feature_image size="l"}} 960w"
+                        sizes="(max-width: 1200px) 100vw, 1200px"
+                        src="{{img_url feature_image size="xl"}}"
+                        alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{name}}{{/if}}"
+                        >
+                <h1 class="text-xl">{{caps title}}</h1>
+                <p>{{primary_tag.name}}</p>
+                </a>
+            </div>
+    {{/foreach}}
+    </div>
+{{/get}}
+<div class="text-center">
+            <a href="#" class="text-center border border-green-400 px-48 py-3 text-green-400 hover:text-black hover:bg-green-400 hover:font-bold">
+                {{caps "читати більше"}}
+            </a>
+</div>

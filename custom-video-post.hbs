@@ -1,0 +1,15 @@
+{{!< default}}
+
+{{#post}}
+<main>
+    <video controls width="250">
+        <source src="{{feature_image_alt}}" type="video/mp4">
+    </video>
+    <h1>{{title}}</h1>
+    {{#primary_tag}}<a href="{{url}}">{{name}}</a>{{/primary_tag}}
+    <h4>{{excerpt}}</h4>
+    <div class="gh-content gh-canvas">
+        {{content}}
+    </div>
+</main>
+{{/post}}

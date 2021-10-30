@@ -1,0 +1,98 @@
+/* Tailwind - add this part */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.nav{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* CONTENT */
+.content {
+    width: 70%;
+    margin: 0 auto;
+   }
+  
+  article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  article img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .kg-width-wide img {
+    max-width: 85vw;
+  }
+  
+  .kg-width-full img {
+    max-width: 100vw;
+  }
+  
+  article figure {
+    margin: 0;
+  }
+  
+  article figcaption {
+    text-align: center;
+  }
+  
+  body {
+    margin: 0;
+  }
+  
+  header, footer {
+    padding: 15px 25px;
+    background-color: #000;
+    color: #fff;
+  }
+  
+  h1 {
+    width: 100%;
+  }
+  
+  article img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .kg-width-wide {
+    position: relative;
+    width: 85vw;
+    min-width: 100%;
+    margin: auto calc(50% - 50vw);
+    transform: translateX(calc(50vw - 50%));
+  }
+  
+  .kg-width-full {
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
+  
+  article figure {
+    margin: 0;
+  }
+  
+  article figcaption {
+    text-align: center;
+  }
+  
+  body {
+    margin: 0;
+  }
+  
+  header, footer {
+    padding: 15px 25px;
+    background-color: #000;
+    color: #fff;
+  }
