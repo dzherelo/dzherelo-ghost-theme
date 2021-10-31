@@ -5,7 +5,8 @@
 
 .nav{
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 2em;
 }
 
 /* CONTENT */
@@ -89,10 +90,4 @@
   
   body {
     margin: 0;
-  }
-  
-  header, footer {
-    padding: 15px 25px;
-    background-color: #000;
-    color: #fff;
-  }
+  }  

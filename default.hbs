@@ -2,7 +2,7 @@
 <html lang="{{@site.locale}}">
 {{> head}}
 <body class="{{body_class}} bg-black text-white">
-    <div class="mx-auto max-w-7xl">
+    <div class="lg:mx-auto mx-4 max-w-7xl">
         {{> header}}
         {{{body}}}
         {{#if @member.paid}}
@@ -34,9 +34,12 @@
         {{/if}}
         {{> footer}}
     </div>
+    
+    <div class="hidden">
     {{#is "post, page"}}
         {{> pswp}}
     {{/is}}
+    </div>
     <script src="{{asset "built/main.min.js"}}"></script>
     {{ghost_foot}}
 </body>

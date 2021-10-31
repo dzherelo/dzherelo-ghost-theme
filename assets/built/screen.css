@@ -32248,7 +32248,8 @@ video {
 
 .nav{
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 2em;
 }
 
 /* CONTENT */
@@ -32333,12 +32334,6 @@ article figcaption {
 
 body {
   margin: 0;
-}
-
-header, footer {
-  padding: 15px 25px;
-  background-color: #000;
-  color: #fff;
 }
 
 @media (min-width: 640px) {
@@ -188474,4 +188469,4 @@ header, footer {
   .\32xl\:ease-in-out {
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
-}
+}  
