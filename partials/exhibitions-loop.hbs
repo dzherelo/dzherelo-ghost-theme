@@ -1,5 +1,5 @@
 {{!-- Featured main block --}}
-<div class="flex flex-col justify-items-center content-center mb-56 text-center">
+<div class="mt-6 flex flex-col justify-items-center content-center lg:mb-36 md:mb-32 sm:mb-24 mb-12 text-center">
     <img src="{{asset "images/hero-image.png"}}" alt="">
     <div class="lg:mx-72 md:mx-36 sm:mx-18">
         <p class="my-16 text-3xl font-light">"Джерело" - виставковий простір, відкритий для вулиці. Спосіб існування "Джерела" - прозорість, відкритість погляду перехожих. </p>
@@ -37,12 +37,12 @@
 {{/get}}
 {{!-- Devider --}}
     <div class="mb-5 flex items-center">
-        <p class="w-36">{{caps "останні відео"}}</p>
+        <p class="lg:w-36 md:w-36 sm:w-36 w-48">{{caps "останні відео"}}</p>
         <hr class="border-green-400 w-full">
     </div>
 {{!-- End --}}
 {{#get "posts" include="tags" filter="tag:hash-video" limit="4"}}
-    <div class="grid grid-cols-2 gap-4 my-10">
+    <div class="grid grid-cols-2 gap-4 mb-10">
     {{#foreach posts}}
     <div class="">
         <a href="{{url}}">
@@ -63,18 +63,18 @@
     </div>
 {{/get}}
 <div class="text-center mb-10">
-    <a href="#" class="text-center border border-green-400 px-48 py-3 text-green-400 hover:text-black hover:bg-green-400 hover:font-bold">
+    <a href="#" class="lg:px-48 md:px-24 sm:px-10 px-8 border border-green-400 py-3 text-green-400 hover:text-black hover:bg-green-400 hover:font-bold">
         {{caps "Дивитися більше"}}
     </a>
 </div>
 {{!-- Devider --}}
 <div class="mb-5 flex items-center">
-    <p class="w-44">{{caps "останні тексти"}}</p>
+    <p class="lg:w-44 md:w-44 sm:w-44 w-52">{{caps "останні тексти"}}</p>
     <hr class="border-green-400 w-full">
 </div>
 {{!-- End --}}
 {{#get "posts" include="tags" filter="tag:hash-text" limit="4"}}
-    <div class="grid grid-cols-2 gap-4 mb-5">
+    <div class="grid grid-cols-2 gap-4 mb-10">
     {{#foreach posts}}
             <div class="">
                 <a href="{{url}}">
@@ -95,7 +95,7 @@
     </div>
 {{/get}}
 <div class="text-center mb-10">
-            <a href="#" class="text-center border border-green-400 px-48 py-3 text-green-400 hover:text-black hover:bg-green-400 hover:font-bold">
+            <a href="#" class="lg:px-48 md:px-24 sm:px-10 px-8 border border-green-400 py-3 text-green-400 hover:text-black hover:bg-green-400 hover:font-bold">
                 {{caps "читати більше"}}
             </a>
 </div>
