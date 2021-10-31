@@ -2,6 +2,10 @@
     "name": "dzherelo",
     "description": "",
     "version": "0.0.1",
+    "keywords":[
+        "ghost-theme",
+        "art"
+    ],
     "engines": {
         "ghost": ">=4.0.0",
         "ghost-api": "v4"
@@ -37,7 +41,6 @@
         "tailwindcss": "^2.2.19",
         "autoprefixer": "^10.0.2",
         "postcss": "^8.0.9"
-
     },
     "scripts":{
         "built-css": "tailwindcss -i ./assets/css/screen.css -o ./assets/built/screen.css"
