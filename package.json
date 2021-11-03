@@ -43,7 +43,8 @@
         "postcss": "^8.0.9"
     },
     "scripts":{
-        "built-css": "tailwindcss -i ./assets/css/screen.css -o ./assets/built/screen.css"
+        "built-css": "tailwindcss -i ./assets/css/screen.css -o ./assets/built/screen.css",
+        "postcss-built": ""
     },
     "devDependencies": {
         "tailwindcss": "^2.2.19",
