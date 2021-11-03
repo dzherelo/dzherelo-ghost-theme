@@ -10,13 +10,13 @@
 </div>
 {{!-- End --}}
 {{#get "tags" filter="accent_color: #333333"}}
-<div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 grid-cols-1 gap-4 mb-20"></div>
 {{!-- Divider --}}
 <div class="mb-5 flex items-center">
     <p class="flex-shrink-0 pr-2">{{caps "виставки"}}</p>
     <hr class="border-green-400 w-full">
 </div>
 {{!-- End --}}
+<div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 grid-cols-1 gap-4 mb-20"></div>
     {{#foreach tags}}
     <div class="text-center ">
         <a href="{{url}}">
