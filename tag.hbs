@@ -1,10 +1,10 @@
 {{!< default}}
 
 {{#tag}}
-<main>
-    <div> 
-        <div>
-            <img srcset="{{img_url og_image size="s"}} 300w,
+<main id="{{slug}}">
+    <article id="{{slug}}">
+        <div class="text-center">
+            <img class="w-full" srcset="{{img_url og_image size="s"}} 300w,
                 {{img_url og_image size="m"}} 720w,
                 {{img_url og_image size="l"}} 960w,
                 {{img_url og_image size="xl"}} 1200w,
@@ -13,13 +13,15 @@
                 src="{{img_url og_image size="xl"}}"
                 alt="{{#if og_image}}{{og_image_alt}}{{else}}{{name}}{{/if}}"
                 >
-                <h1>{{name}}</h1>
-                <span>{{og_description}}</span>
-                <p>{{description}}</p>
+                <div class="my-16">
+                    <span class="text-sm">{{og_description}}</span>
+                    <h1 class="text-4xl">{{name}}</h1>
+                    <p class="text-sm mt-2">{{description}}</p>
+                </div>
         </div>
         <div>
             {{!-- {{#get "tag" }} --}}
         </div>
-    </div>
+    </article>
 </main>
 {{/tag}}
