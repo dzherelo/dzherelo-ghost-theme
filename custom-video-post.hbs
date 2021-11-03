@@ -1,15 +1,25 @@
 {{!< default}}
 
 {{#post}}
-<main>
-    <video controls width="250">
-        <source src="{{feature_image_alt}}" type="video/mp4">
-    </video>
-    <h1>{{title}}</h1>
-    {{#primary_tag}}<a href="{{url}}">{{name}}</a>{{/primary_tag}}
-    <h4>{{excerpt}}</h4>
-    <div class="gh-content gh-canvas">
-        {{content}}
-    </div>
+<main id="{{slug}}" class="mb-6">
+    <article id="{{slug}}">
+        <div class="container text-center">
+            <video class="w-full" id="video" src="{{feature_image_alt}}" controls>
+                Your browser does not support the video tag.
+            </video>
+            <div class="my-16">
+                <h1 class="text-4xl">{{caps title}}</h1>
+                {{#primary_tag}}<p class="text-green-400 text-sm hover:underline"><a href="{{url}}">{{caps name}}</a></p>{{/primary_tag}}
+                <p class="text-sm mt-6">{{excerpt}}</p>
+            </div>
+        </div>
+        <div class="gh-content gh-canvas text-center">
+            {{content}}
+        </div>
+    </article>
 </main>
+<script>
+    let width = window.screen.width
+</script>
 {{/post}}
+
