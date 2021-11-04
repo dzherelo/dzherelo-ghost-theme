@@ -32824,7 +32824,7 @@ li:hover{
   background-color: #00FFCC;
 }
 
-a:hover{
+li a:hover{
   color: #333 !important;
 }
 

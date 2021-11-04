@@ -19,7 +19,7 @@
                     <p class="text-xl font-light mt-2">{{description}}</p>
                 </div>
                 <div class="text-center mb-20">
-                    <a href="/blog/{{slug}}" class="uppercase lg:px-48 md:px-24 sm:px-10 px-8 border border-green-400 py-3 text-green-400 hover:text-black hover:bg-green-400 hover:font-bold">
+                    <a href="/blog/{{slug}}" class="uppercase lg:px-48 md:px-24 sm:px-10 px-8 border border-brand-green py-3 text-brand-green hover:text-black hover:bg-brand-green hover:font-bold">
                         Читати більше
                     </a>
                 </div>
@@ -30,7 +30,7 @@
         {{!-- Divider --}}
             <div class="mb-5 flex items-center">
                 <p class="flex-shrink-0 pr-2 uppercase">Відео</p>
-                <hr class="border-green-400 w-full">
+                <hr class="border-brand-green w-full">
             </div>
             {{!-- End --}}
             <div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 grid-cols-1 lg:gap-4 gap-10 mb-10">
@@ -48,7 +48,7 @@
                         >
                     <div class="mt-2">
                         <h1 class="text-2xl uppercase">{{title}}</h1>
-                        <p class="text-green-400 text-sm uppercase">{{primary_tag.name}}</p>
+                        <p class="text-brand-green text-sm uppercase">{{primary_tag.name}}</p>
                     </div>
                 </a>
             </div>
@@ -61,7 +61,7 @@
      {{!-- Divider --}}
     <div class="mb-5 flex items-center">
         <p class="flex-shrink-0 pr-2 uppercase">Teксти</p>
-        <hr class="border-green-400 w-full">
+        <hr class="border-brand-green w-full">
     </div>
     {{!-- End --}}
     <div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 grid-cols-1 lg:gap-4 gap-10 mb-10">
@@ -78,9 +78,9 @@
                         alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{name}}{{/if}}"
                         >
                     <div class="mt-2">
-                        <p class="text-green-400 text-sm uppercase">{{primary_tag.name}}</p>
+                        <p class="text-brand-green text-sm uppercase">{{primary_tag.name}}</p>
                         <h1 class="text-2xl uppercase">{{title}}</h1>
-                        <p class="text-green-400 text-sm uppercase">{{date published_at format="MMMM DD, YYYY"}} – <span class="text-gray-400">{{reading_time minute="ЧИТАТИ ОДНУ ХВИЛИНУ" minutes="ЧИТАТИ % ХВ"}}</span></p>
+                        <p class="text-brand-green text-sm uppercase">{{date published_at format="MMMM DD, YYYY"}} – <span class="text-gray-400">{{reading_time minute="ЧИТАТИ ОДНУ ХВИЛИНУ" minutes="ЧИТАТИ % ХВ"}}</span></p>
                     </div>
                 </a>
             </div>

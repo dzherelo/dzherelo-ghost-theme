@@ -4,12 +4,12 @@
     <article class="{{post_class}} lg:mx-64 md:mx-32 sm:mx-0 mx-0 mb-12">
         <header class="text-center container mt-4">
             <div class="lg:mx-16 md:mx-8 sm:mx-4 mx-2">
-                <a class="text-green-400 text-sm uppercase" href="{{primary_tag.url}}">
+                <a class="text-brand-green text-sm uppercase" href="{{primary_tag.url}}">
                     <span>{{primary_tag.name}}</span>
                 </a>
                 <h1 class="uppercase text-4xl mt-2">{{title}}</h1>
                 <p class="text-xs font-light my-8">{{meta_description}}</p>
-                <p class="text-green-400 text-sm mb-10 uppercase">{{date published_at format="MMMM DD, YYYY"}} – <span class="text-gray-400">{{reading_time minute="ЧИТАТИ ОДНУ ХВИЛИНУ" minutes="ЧИТАТИ % ХВ"}}</span></p>
+                <p class="text-brand-green text-sm mb-10 uppercase">{{date published_at format="MMMM DD, YYYY"}} – <span class="text-gray-400">{{reading_time minute="ЧИТАТИ ОДНУ ХВИЛИНУ" minutes="ЧИТАТИ % ХВ"}}</span></p>
             </div>
             <img class="h-1/2 w-full" srcset="{{img_url feature_image size="s"}} 300w,
                     {{img_url feature_image size="m"}} 720w,
@@ -21,7 +21,7 @@
                     alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
                     >
         </header>
-        <hr class="border-green-400 w-full my-10">
+        <hr class="border-brand-green w-full my-10">
         <section class="gh-content gh-canvas container">
             {{content}}
         </section>
