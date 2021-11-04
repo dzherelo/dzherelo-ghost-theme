@@ -1,0 +1,20 @@
+<div class="overlay-class hidden fixed bg-black h-screen w-screen inset-0 top-20 flex-col space-y-6 text-center text-lg z-40">
+        {{navigation}}
+        <ul class="nav justify-between">
+            <li><a href="/contacts">КОНТАКТИ</a></li>
+            <li><a href="/about-dzherelo">ПРО ДЖЕРЕЛО</a></li>
+        </ul>
+        <div class="fixed inset-0 inset-y-3/4">
+                {{#unless @member}}
+                    <a class="border border-green-400 px-3 py-3 text-green-400 hover:text-black hover:bg-green-400 text-base" href="/support-dzherelo">
+                        ПІДТРИМАТИ ДЖЕРЕЛО
+                    </a>
+                {{else}}
+                    <a class="border border-green-400 px-3 py-3 text-green-400 hover:text-black hover:bg-green-400 text-base" href="#/portal/account">
+                        МОЄ ДЖЕРЕЛО
+                    </a>
+                {{/unless}}
+        </div>
+        
+</div>
+    
