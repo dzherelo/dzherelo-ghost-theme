@@ -1,27 +1,40 @@
 {{!< default}}
 
-{{#foreach posts}}
-<div class="grid lg:grid-cols-2 grid-cols-1 gap-4 mb-10">
-    <div class="container relative overflow-hidden">
-        <a href="{{url}}">
-                    <img class="w-full m-0" srcset="{{img_url feature_image size="s"}} 300w,
-                        {{img_url feature_image size="m"}} 720w,
-                        {{img_url feature_image size="l"}} 960w,
-                        {{img_url feature_image size="xl"}} 1200w,
-                        {{img_url feature_image size="xxl"}} 2000w"
-                        sizes="(max-width: 1200px) 100vw, 1200px"
-                        src="{{img_url feature_image size="s"}}"
-                            alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{name}}{{/if}}"
-                        >
-                    <div class="mt-2">
-                        <a class="text-green-400 text-sm uppercase" href="{{primary_tag.url}}">
-                            <span>{{primary_tag.name}}</span>
-                        </a>
-                        <h1 class="text-2xl uppercase">{{title}}</h1>
-                        <p class="my-4 text-sm">{{excerpt}}</p>
-                        <p class="text-green-400 text-sm uppercase">{{date published_at format="MMMM DD, YYYY"}} – <span class="text-gray-400">{{reading_time minute="ЧИТАТИ ОДНУ ХВИЛИНУ" minutes="ЧИТАТИ % ХВ"}}</span></p>
-                    </div>
-        </a>
-    </div>
+<div class="flex justify-between items-center">
+    <h1 class="lg:text-4xl text-3xl uppercase lg:text-center my-10">Тексти</h1>
+    <nav class="pagination">
+    {{#if prev}}
+        <a class="newer-posts" href="{{page_url prev}}"><span aria-hidden="true">&larr;</span> Newer Posts</a>
+    {{/if}}
+    <span class="page-number">Page {{page}} of {{pages}}</span>
+    {{#if next}}
+        <a class="older-posts" href="{{page_url next}}">Older Posts <span aria-hidden="true">&rarr;</span></a>
+    {{/if}}
+    </nav>
 </div>
+{{#foreach posts}}
+    <div class="grid lg:grid-cols-2 grid-cols-1 gap-4 mb-10">
+        <div class="container relative overflow-hidden">
+            <a href="{{url}}">
+                        <img class="w-full m-0" srcset="{{img_url feature_image size="s"}} 300w,
+                            {{img_url feature_image size="m"}} 720w,
+                            {{img_url feature_image size="l"}} 960w,
+                            {{img_url feature_image size="xl"}} 1200w,
+                            {{img_url feature_image size="xxl"}} 2000w"
+                            sizes="(max-width: 1200px) 100vw, 1200px"
+                            src="{{img_url feature_image size="s"}}"
+                                alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{name}}{{/if}}"
+                            >
+                        <div class="mt-2">
+                            <a class="text-green-400 text-sm uppercase" href="{{primary_tag.url}}">
+                                <span>{{primary_tag.name}}</span>
+                            </a>
+                            <h1 class="text-2xl uppercase">{{title}}</h1>
+                            <p class="my-4 text-sm">{{excerpt}}</p>
+                            <p class="text-green-400 text-sm uppercase">{{date published_at format="MMMM DD, YYYY"}} – <span class="text-gray-400">{{reading_time minute="ЧИТАТИ ОДНУ ХВИЛИНУ" minutes="ЧИТАТИ % ХВ"}}</span></p>
+                        </div>
+            </a>
+        </div>
+    </div>
+
 {{/foreach}}
