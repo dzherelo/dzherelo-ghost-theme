@@ -7,8 +7,7 @@
     </div>
     {{!-- End --}}
         <div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 grid-cols-1 lg:gap-10 gap-10 mb-20">
-        {{#foreach tags}}
-            {{#has slug="krov-z-ochiei"}}
+        {{#has slug="krov-z-ochiei"}}
                 <div class="text-center ">
                     <a href="{{url}}">
                         <img class="w-full" srcset="{{img_url feature_image size="s"}} 300w,
@@ -76,7 +75,6 @@
                     </a>
                 </div>
             {{/has}}
-        {{/foreach}}
         </div>
     {{/if}}
 {{/get}}
