@@ -1,7 +1,7 @@
 {{!< default}}
 
 {{#post}}
-    <article class="{{post_class}} lg:mx-64 md:mx-32 sm:mx-0 mx-0">
+    <article class="{{post_class}} lg:mx-64 md:mx-32 sm:mx-0 mx-0 mb-12">
         <header class="text-center container mt-4">
             <div class="lg:mx-16 md:mx-8 sm:mx-4 mx-2">
                 <a class="text-green-400 text-sm uppercase" href="{{primary_tag.url}}">
@@ -25,5 +25,7 @@
         <section class="gh-content gh-canvas container">
             {{content}}
         </section>
+
     </article>
+            {{> rec}}
 {{/post}}

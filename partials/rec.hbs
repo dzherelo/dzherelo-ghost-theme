@@ -1,0 +1,33 @@
+{{!-- Recomendation --}}
+    {{#get "posts" filter="published_at:<='{{published_at}}'+id:-{{id}}" limit="2"}}
+    {{!-- Divider --}}
+    <div class="mb-5 flex items-center">
+        <p class="flex-shrink-0 pr-2 uppercase">Читайте також</p>
+        <hr class="border-green-400 w-full">
+    </div>
+    {{!-- End --}}
+        <div class="flex justify-between text-center">
+            {{#foreach posts}}
+                <a href="{{url}}">
+                    <div class="relative text-center overflow-hidden">
+                     <img class="filter brightness-50 object-cover w-full h-full hover:scale-105 transform transition motion-reduce:transform-none" 
+                        srcset="{{img_url feature_image size="s"}} 300w,
+                                {{img_url feature_image size="m"}} 720w,
+                                {{img_url feature_image size="l"}} 960w,
+                                {{img_url feature_image size="xl"}} 1200w,
+                                {{img_url feature_image size="xxl"}} 2000w"
+                                sizes="(max-width: 1200px) 100vw, 1200px"
+                                src="{{img_url feature_image size="xl"}}"
+                                alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+                                >
+                    <div class="absolute w-full h-full inset-y-0 lg:px-56 md:px-16 sm:px-4 px-2">
+                        <div class="flex h-full justify-center items-center">
+                            <h1 class="lg:text-xl text-2xl uppercase">{{title}}</h1>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            {{/foreach}}
+        </div>
+    {{/get}}
+    {{!-- END --}}
