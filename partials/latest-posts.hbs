@@ -6,7 +6,7 @@
             <hr class="border-brand-green w-full">
         </div>
         {{!-- End --}}
-        <div class="grid lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-1 grid-cols-1 lg:gap-4 gap-10 mb-10">
+        <div class="grid lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-1 grid-cols-1 lg:gap-4 gap-10 mb-20">
         {{#foreach posts}}
                 <div class="">
                     <a href="{{url}}">
@@ -18,8 +18,8 @@
                             alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
                         >
                     <div class="mt-2">
-                        <h1 class="text-2xl uppercase">{{title}}</h1>
-                        <p class="text-brand-green text-sm uppercase">{{date published_at format="MMMM DD, YYYY"}} – <span class="text-gray-400">{{reading_time minute="ЧИТАТИ ОДНУ ХВИЛИНУ" minutes="ЧИТАТИ % ХВ"}}</span></p>
+                        <h1 class="text-3xl uppercase">{{title}}</h1>
+                        <p class="text-brand-green text-base uppercase">{{date published_at format="MMMM DD, YYYY"}} – <span class="text-gray-400">{{reading_time minute="ЧИТАТИ ОДНУ ХВИЛИНУ" minutes="ЧИТАТИ % ХВ"}}</span></p>
                     </div>
                     </a>
                 </div>

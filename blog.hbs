@@ -2,7 +2,7 @@
 
 
 <h1 class="lg:text-4xl text-3xl uppercase lg:text-center my-10">Тексти</h1>
-<div class="grid lg:grid-cols-1 lg:mx-64 grid-cols-1 gap-10 mb-10 mx-0">
+<div class="grid lg:grid-cols-1 lg:mx-64 grid-cols-1 gap-10 mb-16 mx-0">
 {{#foreach posts}}
         <div class="container relative overflow-hidden">
             <a href="{{url}}">
@@ -14,18 +14,19 @@
                                 alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{name}}{{/if}}"
                             >
                         <div class="mt-2">
-                            <a class="text-brand-green text-sm uppercase" href="{{primary_tag.url}}">
+                            <a class="text-brand-green text-base uppercase" href="{{primary_tag.url}}">
                                 <span>{{primary_tag.name}}</span>
                             </a>
-                            <h1 class="text-2xl uppercase">{{title}}</h1>
-                            <p class="my-4 text-sm">{{excerpt}}</p>
-                            <p class="text-brand-green text-sm uppercase">{{date published_at format="MMMM DD, YYYY"}} – <span class="text-gray-400">{{reading_time minute="ЧИТАТИ ОДНУ ХВИЛИНУ" minutes="ЧИТАТИ % ХВ"}}</span></p>
+                            <h1 class="text-3xl uppercase">{{title}}</h1>
+                            <p class="my-4 font-light text-base">{{excerpt}}</p>
+                            <p class="text-brand-green text-base uppercase">{{date published_at format="MMMM DD, YYYY"}} – <span class="text-gray-400">{{reading_time minute="ЧИТАТИ ОДНУ ХВИЛИНУ" minutes="ЧИТАТИ % ХВ"}}</span></p>
                         </div>
             </a>
         </div>
 {{/foreach}}
-</div>
-
+<hr class="border-brand-green w-full">
 <div class="">
     {{pagination}}
 </div>
+</div>
+
