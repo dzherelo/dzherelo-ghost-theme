@@ -1,25 +1,22 @@
 {{!< default}}
 
 {{#post}}
-<main id="{{slug}}" class="mb-6">
+<main id="{{slug}}" class="mb-20">
     <article id="{{slug}}">
         <div class="container text-center">
             <video class="w-full" id="video" src="{{feature_image_alt}}" controls>
                 Your browser does not support the video tag.
             </video>
-            <div class="my-16">
+            <div class="my-14">
                 <h1 class="lg:text-4xl text-3xl uppercase">{{title}}</h1>
-                {{#primary_tag}}<p class="text-green-400 text-sm hover:underline uppercase"><a href="{{url}}">{{name}}</a></p>{{/primary_tag}}
-                <p class="text-sm mt-6">{{excerpt}}</p>
+                {{#primary_tag}}<p class="text-green-400 text-base hover:underline uppercase"><a href="{{url}}">{{name}}</a></p>{{/primary_tag}}
+                <p class="text-base mt-6 uppercase">{{excerpt}}</p>
             </div>
         </div>
-        <section class="gh-content gh-canvas container">
+        <section class="gh-content gh-canvas container text-center">
             {{content}}
         </section>
     </article>
 </main>
-<script>
-    let width = window.screen.width
-</script>
 {{/post}}
 

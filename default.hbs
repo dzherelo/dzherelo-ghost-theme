@@ -5,34 +5,7 @@
 <div class="mx-auto max-w-7xl">
         {{> overlay}}
         {{> header}}
-        {{{body}}}
-        {{#if @member.paid}}
-            <div class="gh-subscribe">
-                <div class="gh-outer">
-                    <section class="gh-subscribe-inner">
-                        {{^if @member}}
-                            <h3 class="gh-subscribe-title">Subscribe to {{@site.title}}</h3>
-
-                            <div class="gh-subscribe-description">Don’t miss out on the latest issues. Sign up now to get access to the library of members-only issues.</div>
-
-                            <a class="gh-subscribe-input" href="#/portal/signup">
-                                <div class="gh-subscribe-input-text">
-                                    {{!-- {{> icons/email}} --}}
-                                    jamie@example.com
-                                </div>
-                                <div class="gh-subscribe-input-btn">Subscribe</div>
-                            </a>
-                        {{else}}
-                            <h3 class="gh-subscribe-title">Ready for unlimited access?</h3>
-
-                            <div class="gh-subscribe-description">Upgrade to a paid account to get full access.</div>
-
-                            <a class="gh-subscribe-btn gh-btn gh-primary-btn" href="#/portal/account/plans">Upgrade now</a>
-                        {{/if}}
-                    </section>
-                </div>
-            </div>
-        {{/if}}
+        {{{body}}}        
         {{> footer}}
 </div>
 <div class="hidden">
@@ -41,19 +14,18 @@
 {{/is}}
 </div>
 <script>
-        var overlay = document.getElementsByClassName('overlay-class');
-        var burger = document.getElementsByClassName('gh-burger');
+    var overlay = document.getElementsByClassName('overlay-class');
+    var burger = document.getElementsByClassName('gh-burger');
 
-        var changeState = function(){
-            if (document.body.classList.contains('is-head-open')){
-                document.body.classList.remove('is-head-open');
-                overlay[0].classList.add('hidden');
-            }else{
-                document.body.classList.add('is-head-open');
-                overlay[0].classList.remove('hidden');
+    var changeState = function(){
+        if (document.body.classList.contains('is-head-open')){
+            document.body.classList.remove('is-head-open');
+            overlay[0].classList.add('hidden');
+        }else{
+            document.body.classList.add('is-head-open');
+            overlay[0].classList.remove('hidden');
             }
         }
-
         for(var i = 0; i <burger.length; i++){
             burger[i].addEventListener('click', changeState, false);
         }
