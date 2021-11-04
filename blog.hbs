@@ -4,15 +4,13 @@
 <h1 class="lg:text-4xl text-3xl uppercase lg:text-center my-10">Тексти</h1>
 <div class="grid lg:grid-cols-1 lg:mx-64 grid-cols-1 gap-10 mb-10 mx-0">
 {{#foreach posts}}
-        <div class="container relative overflow-hidden border-4 border-opacity-0 hover:border-opacity-100 hover:border-brand-green">
+        <div class="container relative overflow-hidden">
             <a href="{{url}}">
                         <img class="w-full m-0" srcset="{{img_url feature_image size="s"}} 300w,
                             {{img_url feature_image size="m"}} 720w,
-                            {{img_url feature_image size="l"}} 960w,
-                            {{img_url feature_image size="xl"}} 1200w,
-                            {{img_url feature_image size="xxl"}} 2000w"
+                            {{img_url feature_image size="l"}} 960w"
                             sizes="(max-width: 1200px) 100vw, 1200px"
-                            src="{{img_url feature_image size="s"}}"
+                            src="{{img_url feature_image size="m"}}"
                                 alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{name}}{{/if}}"
                             >
                         <div class="mt-2">
