@@ -32793,6 +32793,19 @@ video {
   gap: 2em;
 }
 
+@media (max-width: 480px) {
+  footer .nav{
+    margin-top: 0;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .nav{
+    margin-top: 5rem;
+    flex-direction: column;
+  }
+}
+
 .nav-pidtrimati-dzhierielo{
   color: #00FFCC;
   text-decoration: underline;
@@ -32815,82 +32828,506 @@ a:hover{
   color: #333 !important;
 }
 
-/* CONTENT */
+/* -------- */
 
-.content {
-  width: 70%;
-  margin: 0 auto;
+/* Content grid
+/* ---------------------------------------------------------- */
+
+/* Canvas creates a multi-column, centered grid which the post
+is laid out on top of. Canvas just defines the grid, we don't
+use it for applying any other styles. */
+
+.gh-canvas {
+  display: grid;
+  grid-template-columns:
+      [full-start]
+      minmax(4vmin, auto)
+          [wide-start]
+          minmax(auto, 240px)
+              [main-start]
+                  min(720px, calc(100% - 8vw))
+              [main-end]
+          minmax(auto, 240px)
+          [wide-end]
+      minmax(4vmin, auto)
+      [full-end]
+  ;
 }
 
-article {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-article img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
-.kg-width-wide img {
-  max-width: 85vw;
-}
-
-.kg-width-full img {
-  max-width: 100vw;
-}
-
-article figure {
-  margin: 0;
-}
-
-article figcaption {
-  text-align: center;
-}
-
-body {
-  margin: 0;
-}
-
-h1 {
-  width: 100%;
-}
-
-article img {
-  display: block;
-  max-width: 100%;
-  height: auto;
+.gh-canvas > * {
+  grid-column: main-start / main-end;
 }
 
 .kg-width-wide {
-  position: relative;
-  width: 85vw;
-  min-width: 100%;
-  margin: auto calc(50% - 50vw);
-  transform: translateX(calc(50vw - 50%));
+  grid-column: wide-start / wide-end;
 }
 
 .kg-width-full {
+  grid-column: full-start / full-end;
+}
+
+.kg-width-full img {
+  width: 100%;
+}
+
+/* Content
+/* ---------------------------------------------------------- */
+
+/* Content refers to styling all page and post content that is
+created within the Ghost editor. The main content handles
+headings, text, images and lists. We deal with cards lower down. */
+
+/* Default vertical spacing */
+
+.gh-content > * + * {
+  margin-top: 4vmin;
+  margin-bottom: 0;
+}
+
+/* [id] represents all headings h1-h6, reset all margins */
+
+.gh-content > [id] {
+  margin: 0;
+  color: #00FFCC;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 1.6em;
+}
+
+/* Add back a top margin to all headings, unless a heading
+is the very first element in the post content */
+
+.gh-content > [id]:not(:first-child) {
+  margin: 1em 0 0;
+}
+
+/* Add a small margin between a heading and anything after it */
+
+.gh-content > [id] + * {
+  margin-top: 1.5rem !important;
+}
+
+/* A larger margin before/after HRs and blockquotes */
+
+.gh-content > hr,
+.gh-content > blockquote {
   position: relative;
-  width: 100vw;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
+  margin-top: 6vmin;
 }
 
-article figure {
-  margin: 0;
+.gh-content > hr + *,
+.gh-content > blockquote + * {
+  margin-top: 6vmin !important;
 }
 
-article figcaption {
+/* Now the content typography styles */
+
+.gh-content a {
+  color: #00FFCC;
+  text-decoration: underline;
+  word-break: break-word;
+}
+
+.gh-content > ul,
+.gh-content > ol,
+.gh-content > dl {
+  padding-left: 1em;
+}
+
+.gh-content > blockquote {
+  position: relative;
+  font-style: italic;
+  padding: 0;
+}
+
+.gh-content > blockquote::before {
+  content: "";
+  position: absolute;
+  left: -1.5em;
+  top: 0;
+  bottom: 0;
+  width: 0.1rem;
+  background: #00FFCC;
+}
+
+.gh-content :not(pre) > code {
+  vertical-align: middle;
+  padding: 0.15em 0.4em 0.15em;
+  border: #e1eaef 1px solid;
+  font-weight: 200 !important;
+  font-size: 0.9em;
+  line-height: 1em;
+  color: #f0f6f9;
+  background: #00FFCC;
+  border-radius: 0.25em;
+}
+
+.gh-content pre {
+  overflow: auto;
+  padding: 16px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 0px 40px 0px rgb(0, 255, 204, .6), 0 0 1px rgb(0, 255, 204, .4);
+}
+
+/* Cards
+/* ---------------------------------------------------------- */
+
+/* Cards are dynamic blocks of content which appear within Ghost
+posts, for example: embedded videos, tweets, galleries, or
+specially styled bookmark links. We add extra styling here to
+make sure they look good, and are given a bit of extra spacing. */
+
+/* Add extra margin before/after any cards,
+except for when immediately preceeded by a heading */
+
+.gh-content :not(.kg-card):not([id]) + .kg-card {
+  margin-top: 6vmin;
+  margin-bottom: 0;
+}
+
+.gh-content .kg-card + :not(.kg-card) {
+  margin-top: 6vmin;
+  margin-bottom: 0;
+}
+
+/* This keeps small embeds centered */
+
+.kg-embed-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* This keeps small iamges centered */
+
+.kg-image-card img {
+  margin: auto;
+}
+
+/* Captions */
+
+figcaption {
+  font-size: 0.75em;
+  padding: 0.8rem 1.5rem 0.8rem;
   text-align: center;
+  color: #00FFCC;
 }
 
-body {
+figcaption strong {
+  color: rgba(0,255,204,0.9);
+  font-weight: 600;
+}
+
+figcaption a {
+  color: #00FFCC;
+}
+
+/* Highly specific styles for traditional Instagram embeds */
+
+iframe.instagram-media {
+  margin-top: 6vmin !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-bottom: 0 !important;
+}
+
+iframe.instagram-media + script + :not([id]) {
+  margin-top: 6vmin;
+}
+
+/* Galleries
+/* ---------------------------------------------------------- */
+
+/* When there galleries are mixed with images, reduce margin
+between them, so it looks like 1 big gallery */
+
+.kg-image-card + .kg-gallery-card,
+.kg-gallery-card + .kg-image-card,
+.kg-gallery-card + .kg-gallery-card {
+  margin-top: 0.75em;
+}
+
+.kg-image-card.kg-card-hascaption + .kg-gallery-card,
+.kg-gallery-card.kg-card-hascaption + .kg-image-card,
+.kg-gallery-card.kg-card-hascaption + .kg-gallery-card {
+  margin-top: 1.75em;
+}
+
+.kg-gallery-container {
+  position: relative;
+}
+
+.kg-gallery-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.kg-gallery-image img {
+  display: block;
   margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.kg-gallery-row:not(:first-of-type) {
+  margin: 0.75em 0 0 0;
+}
+
+.kg-gallery-image:not(:first-of-type) {
+  margin: 0 0 0 0.75em;
+}
+
+/* Bookmark Cards
+/* ---------------------------------------------------------- */
+
+/* These are styled links with structured data, similar to a
+Twitter card. These styles roughly match what you see in the
+Ghost editor. */
+
+.kg-bookmark-card,
+.kg-bookmark-publisher {
+  position: relative;
+  width: 100%;
+}
+
+.kg-bookmark-container,
+.kg-bookmark-container:hover {
+  display: flex;
+  color: currentColor;
+  text-decoration: none !important;
+  background: rgba(255,255,255,0.6);
+  border-radius: 5px;
+  box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+.kg-bookmark-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-basis: 100%;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 20px;
+}
+
+.kg-bookmark-title {
+  font-size: 1.5rem;
+  line-height: 1.4em;
+  font-weight: 600;
+  color: #f0f6f9;
+}
+
+.kg-bookmark-description {
+  display: -webkit-box;
+  margin-top: 3px;
+  color: #fff;
+  font-weight: 600;
+  max-height: 44px;
+  overflow-y: hidden;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.kg-bookmark-metadata {
+  display: flex;
+  align-items: center;
+  margin-top: 22px;
+  width: 100%;
+  color: #00FFCC;
+  font-weight: 500;
+}
+
+.kg-bookmark-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 6px;
+}
+
+.kg-bookmark-author,
+.kg-bookmark-publisher {
+  display: inline;
+}
+
+.kg-bookmark-publisher {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 240px;
+  white-space: nowrap;
+  display: block;
+}
+
+.kg-bookmark-metadata > span:nth-of-type(2) {
+  color: #f0f6f9;
+  font-weight: 400;
+}
+
+.kg-bookmark-metadata > span:nth-of-type(2):before {
+  content: "•";
+  color: #fff;
+  margin: 0 6px;
+}
+
+.kg-bookmark-thumbnail {
+  position: relative;
+  flex-grow: 1;
+  min-width: 33%;
+}
+
+.kg-bookmark-thumbnail img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 0 4px 4px 0;
+}
+
+/* Card captions
+/* ---------------------------------------------------------- */
+
+.kg-width-full.kg-card-hascaption {
+  display: grid;
+  grid-template-columns: inherit;
+}
+
+.kg-width-wide.kg-card-hascaption img {
+  grid-column: wide-start / wide-end;
+}
+
+.kg-width-full.kg-card-hascaption img {
+  grid-column: 1 / -1;
+}
+
+.kg-width-full.kg-card-hascaption figcaption {
+  grid-column: main-start / main-end;
+}
+
+.article-comments {
+  margin: 6vmin 0 0 0;
+}
+
+/* -----old------ */
+
+.footnotes-sep {
+  margin-bottom: 30px;
+}
+
+.footnotes {
+  font-size: 1.5rem;
+}
+
+.footnotes p {
+  margin: 0;
+}
+
+.footnote-backref {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-decoration: none !important;
+  box-shadow: none !important;
+}
+
+/* Tables */
+
+.post-full-content table {
+  display: inline-block;
+  overflow-x: auto;
+  margin: 0.5em 0 2.5em;
+  max-width: 100%;
+  width: auto;
+  border-spacing: 0;
+  border-collapse: collapse;
+  font-family: var(--font-sans-serif);
+  font-size: 1.6rem;
+  white-space: nowrap;
+  vertical-align: top;
+}
+
+.post-full-content table {
+  -webkit-overflow-scrolling: touch;
+  background: radial-gradient(ellipse at left, rgba(255, 255, 255, 0.7) 0%, rgba(0, 0, 0, 0) 75%) 0 center, radial-gradient(ellipse at right, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 75%) 100% center;
+  background-attachment: scroll, scroll;
+  background-size: 10px 100%, 10px 100%;
+  background-repeat: no-repeat;
+}
+
+.post-full-content table td:first-child {
+  background-image: linear-gradient(to right, rgba(255,255,255, 1) 50%, rgba(255,255,255, 0) 100%);
+  background-size: 20px 100%;
+  background-repeat: no-repeat;
+}
+
+.post-full-content table td:last-child {
+  background-image: linear-gradient(to left, rgba(255,255,255, 1) 50%, rgba(255,255,255, 0) 100%);
+  background-position: 100% 0;
+  background-size: 20px 100%;
+  background-repeat: no-repeat;
+}
+
+.post-full-content table th {
+  color: #00FFCC;
+  font-weight: 700;
+  text-align: left;
+  text-transform: uppercase;
+  background-color: color-mod(var(--color-wash) l(+4%));
+}
+
+.post-full-content table th,
+.post-full-content table td {
+  padding: 6px 12px;
+  border: color-mod(var(--color-wash) l(-1%) s(-5%)) 1px solid;
+}
+
+/* Mobile Menu Trigger
+/* ---------------------------------------------------------- */
+
+.gh-burger {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  height: 30px;
+  margin-right: -3px;
+  padding: 0;
+  position: relative;
+  width: 30px
+}
+
+.gh-burger:after,
+.gh-burger:before {
+  background-color: white;
+  content: "";
+  height: 1px;
+  left: 3px;
+  position: absolute;
+  transition: all .2s cubic-bezier(.04, .04, .12, .96) .1008s;
+  width: 24px
+}
+
+.gh-burger:before {
+  top: 11px
+}
+
+.gh-burger:after {
+  bottom: 11px
+}
+
+.is-head-open .gh-burger:before {
+  top: 15px;
+  transform: rotate(45deg)
+}
+
+.is-head-open .gh-burger:after {
+  bottom: 14px;
+  transform: rotate(-45deg)
 }
 
 @media (min-width: 640px) {
@@ -191671,4 +192108,4 @@ body {
   .\32xl\:ease-in-out {
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
-}  
+}

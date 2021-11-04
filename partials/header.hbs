@@ -1,6 +1,7 @@
 <header class="lg:pt-6 md:pt-1 sm:pt-2 pt-2">
-            <div class="flex lg:py-2 md:py-4 sm:py-2 py-1 lg:flex-row md:flex-row sm:flex-col flex-col lg:space-y-0 md:space-y-0 sm:space-y-5 space-y-5 lg:justify-between md:justify-between sm:justify-between">
-                <div class="h-10">
+    <div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 grid-cols-1 col-start-2">
+            <div class="flex items-center space-x-28">
+                <div class="h-11">
                     <a href="{{@site.url}}">
                             <svg width="200" height="50" viewBox="0 0 267 60" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M10.2897 29.6656C9.73545 29.8697 8.9479 29.1989 9.00624 28.4988C9.53127 21.6442 15.8317 11.7852 30.0077 11.7852C52.2634 11.7852 55.0636 48.8002 23.7948 49.7628C20.2654 49.8795 17.9902 49.7628 17.2026 49.7628C16.8526 49.7628 16.5318 49.1211 16.5901 48.7711C17.261 45.3 20.8487 29.2572 22.3072 23.8318C23.8531 18.0273 28.8118 17.0647 30.6202 17.1522C30.9703 17.1814 31.2328 17.5022 31.1453 17.8814C30.241 21.5858 26.0116 40.283 24.9032 44.7749C24.7865 45.2125 25.224 45.6208 25.6616 45.475C28.9576 44.3958 38.5541 40.108 39.8375 30.2781C40.946 21.7608 34.733 16.7147 29.7743 16.8022C20.032 16.948 19.3028 23.6276 19.1569 24.6777C19.1278 24.8819 18.9819 25.0569 18.8069 25.1444C16.9401 26.107 12.244 28.9363 10.2897 29.6656Z" fill="#00FFCC"/>
@@ -13,9 +14,12 @@
                                 <path d="M143.153 49.9364C142.045 50.6364 138.398 48.8571 137.698 46.7862C136.998 44.7152 143.766 20.3593 144.641 18.6676C146.07 15.8674 151.204 15.2548 151.495 16.5674C151.641 17.1799 149.862 24.2388 148.112 31.7935C146.157 40.2816 144.145 49.2947 143.153 49.9364Z" fill="#00FFCC"/>
                             </svg>
                     </a>
-                    <button class="gh-"></button>
                 </div>
-                    <div class="lg:contents md:contents sm:hidden hidden">
+                <div class="flex items-center w-full h-full">
+                    <button class="gh-burger lg:hidden md:hidden sm:block block"></button>
+                </div>
+            </div>
+            <div class="justify-end items-center lg:flex md:flex sm:hidden hidden">
                         {{#unless @member}}
                             <a class="border border-green-400 px-3 py-3 text-green-400 hover:text-black hover:bg-green-400 text-sm" href="/support-dzherelo">
                                 ПІДТРИМАТИ ДЖЕРЕЛО
@@ -23,14 +27,16 @@
                         {{else}}
                             <a class="" href="#/portal/account">МОЄ ДЖЕРЕЛО</a>
                         {{/unless}}
-                    </div>
-                </div>
-                <nav class="justify-between lg:flex md:flex sm:hidden hidden lg:pt-4 lg:pb-0 md:py-2 sm:py-0 py-0 font-light text-sm">
+            </div>
+            <nav class="lg:flex md:flex sm:hidden hidden lg:pt-6 lg:pb-1 md:pt-6 md:pb-1 sm:py-0 py-0 font-light text-sm justify-between">
                         {{navigation}}
-                        <ul class="nav">
-                            <li><a href="/contacts">КОНТАКТИ</a></li>
-                            <li><a href="/about-dzherelo">ПРО ДЖЕРЕЛО</a></li>
-                        </ul>
-                </nav>       
-                <hr class="border-green-300 my-5">
+            </nav>
+            <nav class="lg:flex md:flex sm:hidden hidden lg:pt-6 lg:pb-1 md:pt-6 md:pb-1 sm:py-0 py-0 font-light text-sm justify-end">
+                <ul class="nav justify-between">
+                    <li><a href="/contacts">КОНТАКТИ</a></li>
+                    <li><a href="/about-dzherelo">ПРО ДЖЕРЕЛО</a></li>
+                </ul>
+            </nav>      
+    </div>
+    <hr class="border-green-300 my-5">
 </header>

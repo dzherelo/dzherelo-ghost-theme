@@ -1,0 +1,23 @@
+{{#get "posts" include="tags" filter="tag:hash-video" limit="4"}}
+    <div class="grid grid-cols-1 lg:gap-4 gap-10 mb-10">
+    {{#foreach posts}}
+    <div class="">
+        <a href="{{url}}">
+        <img class="w-full" srcset="{{img_url feature_image size="s"}} 300w,
+                {{img_url feature_image size="m"}} 720w,
+                {{img_url feature_image size="l"}} 960w,
+                {{img_url feature_image size="xl"}} 1200w,
+                {{img_url feature_image size="xxl"}} 2000w"
+                sizes="(max-width: 1200px) 100vw, 1200px"
+                src="{{img_url feature_image size="xl"}}"
+                alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{name}}{{/if}}"
+                >
+            <div class="mt-2">
+                <h1 class="text-2xl uppercase">{{title}}</h1>
+                <p class="text-green-400 text-sm uppercase">{{cprimary_tag.name}}</p>
+            </div>
+        </a>
+    </div>
+    {{/foreach}}
+    </div>
+{{/get}}

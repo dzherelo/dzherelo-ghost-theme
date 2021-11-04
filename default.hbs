@@ -3,7 +3,26 @@
 {{> head}}
 <body class="{{body_class}} bg-black text-white lg:mx-8 md:mx-6 sm:mx-4 mx-2">
     <div class="mx-auto max-w-7xl">
+        <div class="overlay-class hidden fixed bg-black h-screen w-screen inset-0 top-20 flex-col space-y-6 text-center text-lg z-40">
+            {{navigation}}
+                <ul class="nav justify-between">
+                    <li><a href="/contacts">КОНТАКТИ</a></li>
+                    <li><a href="/about-dzherelo">ПРО ДЖЕРЕЛО</a></li></ul>
+            <div class="fixed inset-0 inset-y-3/4">
+                {{#unless @member}}
+                    <a class="border border-green-400 px-3 py-3 text-green-400 hover:text-black hover:bg-green-400 text-base" href="/support-dzherelo">
+                        ПІДТРИМАТИ ДЖЕРЕЛО
+                    </a>
+                {{else}}
+                    <a class="border border-green-400 px-3 py-3 text-green-400 hover:text-black hover:bg-green-400 text-base" href="#/portal/account">
+                        МОЄ ДЖЕРЕЛО
+                    </a>
+                {{/unless}}
+            </div>
+        </div>
+    </div>
         {{> header}}
+
         {{{body}}}
         {{#if @member.paid}}
             <div class="gh-subscribe">
@@ -40,7 +59,25 @@
         {{> pswp}}
     {{/is}}
     </div>
-    <script src="{{asset "built/main.min.js"}}"></script>
+    {{!-- <script src="{{asset "built/main.min.js"}}"></script> --}}
+    <script>
+        var overlay = document.getElementsByClassName('overlay-class');
+        var burger = document.getElementsByClassName('gh-burger');
+
+        var changeState = function(){
+            if (document.body.classList.contains('is-head-open')){
+                document.body.classList.remove('is-head-open');
+                overlay[0].classList.add('hidden');
+            }else{
+                document.body.classList.add('is-head-open');
+                overlay[0].classList.remove('hidden');
+            }
+        }
+
+        for(var i = 0; i <burger.length; i++){
+            burger[i].addEventListener('click', changeState, false);
+        }
+    </script>
     {{ghost_foot}}
 </body>
 </html>

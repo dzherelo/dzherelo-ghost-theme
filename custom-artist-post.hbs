@@ -3,7 +3,7 @@
 {{#post}}
 <main id="{{slug}}" class="mb-6">
     <article id="{{slug}}">
-        <div class="container relative text-center overflow-hidden">
+        <div class="relative text-center overflow-hidden">
                 <img class="filter brightness-50 object-cover w-full h-full hover:scale-105 transform transition motion-reduce:transform-none" 
                     srcset="{{img_url feature_image size="s"}} 300w,
                             {{img_url feature_image size="m"}} 720w,
@@ -16,12 +16,12 @@
                             >
                 <div class="absolute w-full h-full inset-y-0 lg:px-56 md:px-16 sm:px-4 px-2">
                     <div class="flex h-full items-center">
-                        <h1 class="text-4xl">{{caps title}}</h1>
+                        <h1 class="lg:text-4xl text-3xl uppercase">{{title}}</h1>
                     </div>
                 </div>
                 
         </div>
-        <div class="gh-content gh-canvas text-center text-2xl lg:mx-72 md:mx-36 sm:mx-18 lg:mb-36 md:mb-32 sm:mb-24 mb-16 mt-16">
+        <div class="gh-content gh-canvas text-center text-xl lg:mx-48 md:mx-36 sm:mx-18 lg:mb-36 md:mb-32 sm:mb-24 mb-16 lg:mt-16 md:mt-12 sm:mt-10 mt-8">
             {{content}}
         </div>
     </article>

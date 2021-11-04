@@ -16,17 +16,17 @@
                 <div class="my-16 lg:mx-72 md:mx-36 sm:mx-18">
                     <span class="text-base uppercase">{{og_description}}</span>
                     <h1 class="text-4xl uppercase mt-10 mb-4">{{name}}</h1>
-                    <p class="text-2xl font-light mt-2">{{description}}</p>
+                    <p class="text-sm font-light mt-2">{{description}}</p>
                 </div>
         </div>
     </article>
+    {{#foreach posts}}
     {{!-- Divider --}}
     <div class="mb-5 flex items-center">
         <p class="flex-shrink-0 pr-2 uppercase">"{{name}}": Відео</p>
         <hr class="border-green-400 w-full">
     </div>
     {{!-- End --}}
-    {{#foreach posts}}
     <div class="">
         {{title}}
     </div>
