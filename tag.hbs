@@ -14,22 +14,54 @@
                 alt="{{#if og_image}}{{og_image_alt}}{{else}}{{name}}{{/if}}"
                 >
                 <div class="my-16 lg:mx-72 md:mx-36 sm:mx-18">
-                    <span class="text-base uppercase">{{og_description}}</span>
+                    <span class="text-base uppercase">{{meta_description}}</span>
                     <h1 class="text-4xl uppercase mt-10 mb-4">{{name}}</h1>
                     <p class="text-2xl font-light mt-2">{{description}}</p>
                 </div>
         </div>
     </article>
+
+    {{#get "posts" filter="tag:{{slug}}+tag:'hash-video'" limit="2"}}
+        {{#if posts}}
+            {{!-- Divider --}}
+            <div class="mb-5 flex items-center">
+                <p class="flex-shrink-0 pr-2 uppercase">"{{name}}": Відео</p>
+                <hr class="border-green-400 w-full">
+            </div>
+            {{!-- End --}}
+            <div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 grid-cols-1 lg:gap-4 gap-10 mb-10">
+            {{#foreach posts}}
+            <div class="">
+                <a href="{{url}}">
+                <img class="w-full" srcset="{{img_url feature_image size="s"}} 300w,
+                        {{img_url feature_image size="m"}} 720w,
+                        {{img_url feature_image size="l"}} 960w,
+                        {{img_url feature_image size="xl"}} 1200w,
+                        {{img_url feature_image size="xxl"}} 2000w"
+                        sizes="(max-width: 1200px) 100vw, 1200px"
+                        src="{{img_url feature_image size="xl"}}"
+                        alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{name}}{{/if}}"
+                        >
+                    <div class="mt-2">
+                        <h1 class="text-2xl uppercase">{{title}}</h1>
+                        <p class="text-green-400 text-sm uppercase">{{primary_tag.name}}</p>
+                    </div>
+                </a>
+            </div>
+            {{/foreach}}
+            </div>
+        {{/if}}
+    {{/get}}
     {{!-- Divider --}}
     <div class="mb-5 flex items-center">
-        <p class="flex-shrink-0 pr-2 uppercase">"{{name}}": Відео</p>
+        <p class="flex-shrink-0 pr-2 uppercase">"{{name}}": Teксти</p>
         <hr class="border-green-400 w-full">
     </div>
     {{!-- End --}}
-    {{#foreach posts}}
+    {{#get "posts" filter="tag:{{slug}}+tag:'hash-text'" limit="2"}}
     <div class="">
         {{title}}
     </div>
-    {{/foreach}}
+    {{/get}}
 </main>
 {{/tag}}
