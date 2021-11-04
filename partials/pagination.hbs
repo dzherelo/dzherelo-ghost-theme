@@ -1,13 +1,15 @@
-<nav class="flex justify-between items-center">
+<nav class="flex justify-between items-center text-sm">
     {{^if prev}}
         <div class="h-10 w-32"></div>
     {{/if}}
     {{#if prev}}
-        <a class="newer-posts hover:text-brand-green" href="{{page_url prev}}"><span aria-hidden="true">&larr;</span> Нові публікації</a>
+        <a class="hover:bg-brand-green hover:text-brand-background p-1" href="{{page_url prev}}"><span aria-hidden="true">&larr;</span> Нові публікації</a>
     {{/if}}
-    <span class="page-number">{{page}} із {{pages}}</span>
+    <div class="bg-brand-green p-1 py-1">
+        <span class="text-brand-background">{{page}} із {{pages}}</span>
+    </div>
     {{#if next}}
-        <a class="older-posts hover:text-brand-green" href="{{page_url next}}">Старші публікації <span aria-hidden="true">&rarr;</span></a>
+        <a class="hover:bg-brand-green hover:text-brand-background p-1" href="{{page_url next}}">Старші публікації <span aria-hidden="true">&rarr;</span></a>
     {{/if}}
     {{^if next}}
         <div class="h-10 w-32"></div>
