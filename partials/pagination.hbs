@@ -1,17 +1,15 @@
 <nav class="flex justify-between items-center text-base uppercase">
-    {{^if prev}}
-        <div class="h-10 w-40"></div>
-    {{/if}}
     {{#if prev}}
-        <a class="hover:bg-brand-green hover:text-brand-background p-1" href="{{page_url prev}}"><span aria-hidden="true">&larr;</span> Нові публікації</a>
+        <a class="hover:border-brand-green border border-transparent text-brand-green p-1 lg:text-base text-sm" href="{{page_url prev}}"><span aria-hidden="true">&larr;</span> Попередня</a>
+    {{else}}
+        <a class="text-brand-green opacity-25 p-1 cursor-default pointer-events-none lg:text-base text-sm" ><span aria-hidden="true">&larr;</span> Попередня</a>
     {{/if}}
-    <div class="bg-brand-green p-1 py-1">
-        <span class="text-brand-background">{{page}} із {{pages}}</span>
+    <div class="border border-brand-green lg:px-2 sm:px-1 lg:py-1 sm:py-0.5">
+        <span class="text-brand-green lg:text-base text-sm">{{page}} із {{pages}}</span>
     </div>
     {{#if next}}
-        <a class="hover:bg-brand-green hover:text-brand-background p-1" href="{{page_url next}}">Старші публікації <span aria-hidden="true">&rarr;</span></a>
-    {{/if}}
-    {{^if next}}
-        <div class="h-10 w-40"></div>
+        <a class="hover:border-brand-green hover:border text-brand-green p-1 lg:text-base text-sm" href="{{page_url next}}">Наступна <span aria-hidden="true">&rarr;</span></a>
+    {{else}}
+        <a class="text-brand-green opacity-25 p-1 cursor-default pointer-events-none lg:text-base text-sm" >Наступна <span aria-hidden="true">&rarr;</span></a>
     {{/if}}
 </nav>

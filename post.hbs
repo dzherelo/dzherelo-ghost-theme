@@ -2,11 +2,13 @@
 
 {{#post}}
     <article class="{{post_class}} lg:mx-64 md:mx-32 sm:mx-0 mx-0 mb-12">
-        <header class="text-center container mt-4">
+        <header class="text-center container mt-12">
             <div class="lg:mx-16 md:mx-8 sm:mx-4 mx-2">
+                {{#if primary_tag}}
                 <a class="text-brand-green text-sm uppercase" href="{{primary_tag.url}}">
                     <span>{{primary_tag.name}}</span>
                 </a>
+                {{/if}}
                 <h1 class="uppercase text-4xl mt-2">{{title}}</h1>
                 <p class="text-xs font-light my-8">{{meta_description}}</p>
                 <p class="text-brand-green text-sm mb-10 uppercase">{{date published_at format="MMMM DD, YYYY"}} – <span class="text-gray-400">{{reading_time minute="ЧИТАТИ 1 ХВ" minutes="ЧИТАТИ % ХВ"}}</span></p>
