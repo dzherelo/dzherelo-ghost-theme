@@ -32882,8 +32882,7 @@ headings, text, images and lists. We deal with cards lower down. */
 
 .gh-content > [id] {
   margin: 0;
-  color: #00FFCC;
-  font-weight: 400;
+  font-weight: 600;
   text-transform: uppercase;
   font-size: 1.6em;
 }
@@ -32930,6 +32929,7 @@ is the very first element in the post content */
 
 .gh-content > blockquote {
   position: relative;
+  font-size: 1.8em;
   font-style: italic;
   padding: 0;
 }
