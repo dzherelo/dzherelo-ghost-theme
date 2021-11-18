@@ -2,14 +2,14 @@
     {{#if tags}}
     {{!-- Divider --}}
     <div class="mb-5 flex items-center">
-        <p class="flex-shrink-0 pr-2 uppercase">виставки</p>
+        <p class="flex-shrink-0 pr-2 uppercase">Виставки</p>
         <hr class="border-brand-green w-full">
     </div>
     {{!-- End --}}
         <div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 grid-cols-1 lg:gap-4 gap-10 mb-10">
         {{#foreach tags}}
-            <a href="{{url}}">
-                <img class="w-full h-2/3 object-cover" srcset="{{img_url feature_image size="s"}} 300w,
+            <a class="" href="{{url}}">
+                <img class="w-full object-cover" srcset="{{img_url feature_image size="s"}} 300w,
                             {{img_url feature_image size="m"}} 720w,
                             {{img_url feature_image size="l"}} 960w"
                             sizes="800px"
