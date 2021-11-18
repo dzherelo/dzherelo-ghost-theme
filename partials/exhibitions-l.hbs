@@ -1,4 +1,4 @@
-{{#get "tags" filter="accent_color: #333333"}}
+{{#get "tags" filter="accent_color: #333333" order="name desc"}}
     {{#if tags}}
     {{!-- Divider --}}
     <div class="mb-5 flex items-center">
@@ -6,23 +6,21 @@
         <hr class="border-brand-green w-full">
     </div>
     {{!-- End --}}
-        <div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 grid-cols-1 lg:gap-4 gap-10 mb-16">
+        <div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 grid-cols-1 lg:gap-4 gap-10 mb-10">
         {{#foreach tags}}
-        <div class="text-center mb-12">
             <a href="{{url}}">
-                <img class="w-full" srcset="{{img_url feature_image size="s"}} 300w,
+                <img class="w-full h-2/3 object-cover" srcset="{{img_url feature_image size="s"}} 300w,
                             {{img_url feature_image size="m"}} 720w,
                             {{img_url feature_image size="l"}} 960w"
                             sizes="800px"
                             src="{{img_url feature_image size="m"}}"
                             alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{name}}{{/if}}"
                     >
-                    <div class="mt-6">
-                        <h1 class="text-5xl uppercase">{{name}}</h1>
+                    <div class="mt-6 text-center">
+                        <h1 class="text-3xl uppercase">{{name}}</h1>
                         <p class="text-brand-green mt-1 text-base uppercase">{{meta_description}}</p>
                     </div>
             </a>
-        </div>
         {{/foreach}}
         </div>
     {{/if}}
