@@ -3,16 +3,18 @@
 {{> head}}
 <body class="{{body_class}} bg-brand-background text-white lg:mx-8 md:mx-6 sm:mx-4 mx-2">
 <div class="mx-auto max-w-7xl">
-        {{> overlay}}
-        {{> header}}
-        {{{ body }}}        
-        {{> footer}}
+    {{!-- TODO: Make overlay disable scroll of the screen --}}
+    {{> overlay}}
+    {{> header}}
+    {{{ body }}}        
+    {{> footer}}
 </div>
 <div class="hidden">
 {{#is "post, page"}}
     {{> pswp}}
 {{/is}}
 </div>
+{{!-- TODO: Refactor overlay script --}}
 <script>
     var overlay = document.getElementsByClassName('overlay-class');
     var burger = document.getElementsByClassName('gh-burger');
